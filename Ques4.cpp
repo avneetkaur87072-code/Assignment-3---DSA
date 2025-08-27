@@ -37,7 +37,7 @@ public:
 };
 
 
-bool IsAlnum(char c) {
+bool isoperand(char c) {
     return ((c >= '0' && c <= '9') ||
             (c >= 'A' && c <= 'Z') ||
             (c >= 'a' && c <= 'z'));
@@ -57,8 +57,8 @@ string infixToPostfix(string infix) {
     string postfix = "";
 
     for (char c : infix) {
-        if (IsAlnum(c)) {
-            postfix += c;   // operand ? output
+        if (isoperand(c)) {
+            postfix += c;   
         }
         else if (c == '(') {
             s.push(c);
@@ -93,4 +93,5 @@ int main() {
     cout << "Postfix expression: " << infixToPostfix(infix) << endl;
     return 0;
 }
+
 
