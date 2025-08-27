@@ -41,7 +41,7 @@ bool isDigit(char c) {
 }
 
 // Function to evaluate postfix expression
-int evaluatePostfix(const char* expr) {
+int evaluatePostfix(char expr[]) {
     Stack st;
 
     for (int i = 0; expr[i] != '\0'; i++) {
@@ -49,7 +49,7 @@ int evaluatePostfix(const char* expr) {
 
         if (isDigit(c)) {
             // Convert char to int and push
-            st.push(c - '0');
+            st.push(c - '0');   // asci val of '0' is 48
         } else {
             // Operator: pop two operands
             int val2 = st.pop();
@@ -84,4 +84,5 @@ int main() {
 
     return 0;
 }
+
 
