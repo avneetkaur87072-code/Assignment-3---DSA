@@ -10,8 +10,8 @@ bool isValidParentheses(string s){
 			st.push(s[i]);    //for opening brackets
 		}
 		else {
-			if(st.size() == 0){  //if closing bracket at first position
-				return false;    // directly return false
+			if(st.size() == 0){ //if i points to closing bracket and stack is empty
+				return false;    // {[()]}]  last ']' is extra one
 			}
 			if(st.top() == '(' && s[i] == ')' ||
 			st.top() == '{' && s[i] == '}' ||    //if matched, pop from stack so that 
@@ -23,7 +23,7 @@ bool isValidParentheses(string s){
 			}
 		}
 	}
-	return st.size()==0;	
+	return st.size()==0;
 }
 
 int main(){
@@ -38,3 +38,4 @@ int main(){
 	}
 	return 0;
 }
+
